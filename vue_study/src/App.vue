@@ -3,23 +3,32 @@
   <button @click="show = !show">按钮</button>
 
   <div v-for="(index, item) in list" :key="item">
-    {{ item }} {{ index }}
+    {{ item }} {{ index }}  {{ msg }} 
   </div>
 
   <div>
+    <child>
+      <template #xtm="data">替换成xtm {{ data.age }}</template>
+    </child>
     <input placeholder="请输入内容" @keydown.enter="add">
   </div>
   <!-- 使用注册的组件 -->
   <numberClick :num = "3" @plus = "plus"></numberClick>
+  <myipt v-model = "ipt"></myipt>
 </template>
 
 <script>
 import { ref } from "vue";
 import numberClick from "@/components/numberClick.vue";
+import child from "@/components/child.vue";
+import myipt from "@/components/myipt.vue"
+import { inject } from "vue";
 export default {
   // 注册组件
   components: {
-    numberClick
+    numberClick,
+    child,
+    myipt
   },
   // 数据
   data() {
@@ -41,6 +50,8 @@ export default {
   setup() {
     let show = ref(true);
     const list = ref(["小宋", "小雪", "小二"]);
+    const msg = inject("msg111")
+    const ipt = ref("你好")
     
     function add(e) {
       // 添加输入内容到列表
@@ -54,6 +65,8 @@ export default {
     return {
       show,
       list,
+      msg,
+      ipt,
       add
     }
   },
