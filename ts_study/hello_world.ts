@@ -16,7 +16,7 @@ let a1: any = { value: "111" }  // 初始化为对象
 a1.value = 1                    // 修改对象的属性
 a1.name = "xtm"                 // 给对象添加name属性
 
-console.log(a1)  // 输出：{ value: 1, name: 'xtm' }
+console.log(a1)  // { value: 1, name: 'xtm' }
 
 
 let n1: null = null
