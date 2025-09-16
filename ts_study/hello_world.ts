@@ -30,3 +30,65 @@ let n: unknown = "111"
 n = 1
 n = null
 
+//  联合类型  
+let div:HTMLElement|null  = document.getElementById("#div")
+0
+function add(num : number|string) :number {
+    return 1
+}
+
+
+add("111")
+add(222)
+
+//类型断言
+let img1 = document.getElementById("#img") as HTMLImageElement
+img1.src = "http://xxx/img"
+
+let img2 = <HTMLImageElement>document.getElementById("#img") 
+img2.src = "http://xxx/iag"
+
+// 数组类型
+
+let b1 :string[] = ["1","2"]
+
+let b2 :any[] = ["1",2,true]
+
+let b3 :boolean[] = [true, false]
+
+//  元组    制定规律
+let b4 :[number, number] = [1,23]
+console.log(b4[0])    // 防止越界
+
+let b5 :[number, string, boolean] = [2334,"nihao" , false]
+
+
+//多维数组
+let arr1 :number[][] = [[1,2],[33,22]]
+
+
+//  接口
+
+interface User {
+    readonly id :number   //只能读  不可修改
+    name: string
+    age ?: number  //可选
+    address ?: string
+    getName: () => string
+    setAge: (age: number) => void
+
+}
+
+let zhangsan : User = {
+    id : 1 ,
+    name : "张三",
+    getName : function() {
+        return this.name
+    },
+    setAge : function(age: number) {
+        this.age = age
+    }
+
+
+}
+
