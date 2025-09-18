@@ -75,3 +75,4 @@ let c1: ColorInter = {
     blue: Color.Blue, // blue就只能写 Color.Blue
 }
 
+
