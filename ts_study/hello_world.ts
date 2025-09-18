@@ -31,8 +31,8 @@ n = 1
 n = null
 
 //  联合类型  
-let div:HTMLElement|null  = document.getElementById("#div")
-0
+// let div:HTMLElement|null  = document.getElementById("#div")
+
 function add(num : number|string) :number {
     return 1
 }
@@ -42,11 +42,11 @@ add("111")
 add(222)
 
 //类型断言
-let img1 = document.getElementById("#img") as HTMLImageElement
-img1.src = "http://xxx/img"
+// let img1 = document.getElementById("#img") as HTMLImageElement
+// img1.src = "http://xxx/img"
 
-let img2 = <HTMLImageElement>document.getElementById("#img") 
-img2.src = "http://xxx/iag"
+// let img2 = <HTMLImageElement>document.getElementById("#img") 
+// img2.src = "http://xxx/iag"
 
 // 数组类型
 
@@ -90,5 +90,78 @@ let zhangsan : User = {
     }
 
 
+}
+
+//继承
+interface People {
+    gender : number
+}
+
+interface Student extends People {
+
+}
+
+let ss1 :Student = {
+    gender: 1
+} 
+
+// 交叉类型    &
+
+interface Graudent {
+    name : string
+}
+
+
+let ss2: Student & Graudent = {
+    name :  "xtm",
+    gender : 1
+}
+
+// 类型别名
+
+type MyType = string | string[]
+
+let m1 : MyType = "xtm"
+
+let m2 : MyType = ["xtm", "kkk"]
+
+
+
+type InType =  {
+    readonly id: number ,
+    name : string,
+    age ?: number
+}
+
+
+let zhang : InType = {
+    id : 1,
+    name : "stt",
+}
+
+type F1 =  (name : string, age : number) => string
+
+let f1: F1 = (name: string , age : number) => {
+    return "xtm"
+}
+
+
+let f2: F1 = function (name: string , age : number) {
+    return "xtm"
+}
+
+
+// type 联合类型
+
+type A = {
+    name : string
+}
+type B = {
+    age : number
+}
+
+let C : A & B = {
+    name : "xtm",
+    age : 1
 }
 
