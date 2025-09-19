@@ -29,6 +29,12 @@ then((res: responseType<dataType>) => {   //指定类型为responseType<dataType
         li.innerHTML = `
         <span>name: ${item.name}</span> <span style="margin-left: 10px">age:${item.age}</span>
         `
+        //效果
+        /*
+        <li>
+    <span>name: 小明</span> <span style="margin-left: 10px">age:20</span>
+        </li>
+        */ 
         app.append(li)
     })
 })
